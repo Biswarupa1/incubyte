@@ -1,1 +1,59 @@
+class Spacecraft:
+    def __init__(self, x, y, z, direction):
+        self.position = (x, y, z)
+        self.direction = direction
+
+    def move_forward(self):
+        x, y, z = self.position
+        if self.direction == 'N':
+            self.position = (x, y + 1, z)
+        elif self.direction == 'S':
+            self.position = (x, y - 1, z)
+        elif self.direction == 'E':
+            self.position = (x + 1, y, z)
+        elif self.direction == 'W':
+            self.position = (x - 1, y, z)
+        elif self.direction == 'Up':
+            self.position = (x, y, z + 1)
+        elif self.direction == 'Down':
+            self.position = (x, y, z - 1)
+
+    def move_backward(self):
+        # Implement similar to move_forward()
+
+    def turn_left(self):
+        # Implement logic to update direction for left turn
+
+    def turn_right(self):
+        # Implement logic to update direction for right turn
+
+    def turn_up(self):
+        # Implement logic to update direction for up turn
+
+    def turn_down(self):
+        # Implement logic to update direction for down turn
+
+def execute_commands(spacecraft, initial_position, initial_direction, commands):
+    # Initialize the spacecraft's initial position and direction
+    spacecraft.position = initial_position
+    spacecraft.direction = initial_direction
+
+    # Execute each command
+    for command in commands:
+        if command == 'f':
+            spacecraft.move_forward()
+        elif command == 'b':
+            spacecraft.move_backward()
+        elif command == 'l':
+            spacecraft.turn_left()
+        elif command == 'r':
+            spacecraft.turn_right()
+        elif command == 'u':
+            spacecraft.turn_up()
+        elif command == 'd':
+            spacecraft.turn_down()
+
+    # Print the final position and direction
+    print("Final Position:", spacecraft.position)
+    print("Final Direction:", spacecraft.direction)
 
